@@ -8,9 +8,9 @@ WORKDIR $HOME
 
 ######### Customize Container Here ###########
 
-RUN apt-get update && apt-get install flatpak
-RUN flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-RUN flatpak install flathub com.plexamp.Plexamp
+RUN apt-get update && apt-get install -y flatpak
+RUN flatpak remote-add -y --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+RUN flatpak install -y flathub com.plexamp.Plexamp
 
 ######### End Customizations ###########
 
