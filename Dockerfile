@@ -8,19 +8,9 @@ WORKDIR $HOME
 
 ######### Customize Container Here ###########
 
-# Install Chromium
-COPY ./src/ubuntu/install/chromium $INST_SCRIPTS/chromium/
-RUN bash $INST_SCRIPTS/chromium/install_chromium.sh && rm -rf $INST_SCRIPTS/chromium/
-
 RUN apt-get update && apt-get install flatpak
 RUN flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 RUN flatpak install flathub com.plexamp.Plexamp
-
-# Install VLC
-RUN apt-get update && apt-get install -y vlc
-
-# Install Picard
-RUN add-apt-repository ppa:musicbrainz-developers/stable && apt-get update && apt-get install -y picard
 
 ######### End Customizations ###########
 
